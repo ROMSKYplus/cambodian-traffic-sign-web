@@ -1,0 +1,1250 @@
+/* ==========================================================================
+   TrafficSign AI - Luxury Minimalist AI SaaS Theme (Kiwi Design System)
+   Colors: Crisp White (#FFFFFF), Deep Black (#111827), Kiwi Lime Green (#22C55E / #4ADE80)
+   Shapes: 9999px Pills for buttons/inputs, 20px Rounded Bento Cards
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --kiwi-green: #22C55E;
+  --kiwi-green-light: #4ADE80;
+  --kiwi-green-bg: #DCFCE7;
+  --kiwi-green-subtle: #F0FDF4;
+  --kiwi-green-text: #065F46;
+  
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-tertiary: #6B7280;
+  --text-quaternary: #9CA3AF;
+  
+  --bg-pure: #FFFFFF;
+  --bg-page: #FAFAFA;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F3F4F6;
+  
+  --border-card: #E5E7EB;
+  --border-subtle: #F3F4F6;
+  
+  --radius-pill: 9999px;
+  --radius-card: 20px;
+  --radius-inner: 12px;
+  
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --shadow-card-hover: 0 10px 30px -4px rgba(0, 0, 0, 0.08);
+}
+
+/* Global Reset & Dark Mode Override */
+html {
+  scroll-behavior: smooth !important;
+}
+
+[id] {
+  scroll-margin-top: 95px !important;
+}
+
+html, body, [class*="css"],
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+[data-testid="stHeader"],
+section.main {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  color: #111827 !important;
+  background-color: #FFFFFF !important;
+}
+
+/* Ensure all text inherits dark typography */
+.stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+  color: #111827 !important;
+}
+
+.block-container {
+  padding-top: 1.5rem !important;
+  padding-bottom: 4rem !important;
+  max-width: 1180px !important;
+}
+
+/* Remove default Streamlit top header bar clutter */
+header[data-testid="stHeader"],
+#MainMenu {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  padding: 0 !important;
+}
+footer {
+  display: none !important;
+}
+
+/* Ensure no markdown container injects default blue/underlines to our links */
+[data-testid="stMarkdownContainer"] a {
+  text-decoration: none !important;
+}
+
+/* ==========================================================================
+   Kiwi Fixed Floating Navbar
+   ========================================================================== */
+.kiwi-navbar-spacer {
+  height: 72px;
+  width: 100%;
+  display: block;
+}
+
+.kiwi-navbar-fixed-container {
+  position: fixed !important;
+  top: 1rem !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+}
+
+.kiwi-navbar {
+  pointer-events: auto !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: min(1140px, calc(100vw - 2.5rem)) !important;
+  max-width: 1140px !important;
+  padding: 0.75rem 1.5rem !important;
+  background-color: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(229, 231, 235, 0.9) !important;
+  border-radius: var(--radius-pill) !important;
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Force override Streamlit default markdown link color and underlines */
+.kiwi-navbar a,
+.kiwi-navbar a:visited,
+.kiwi-navbar a:hover,
+.kiwi-navbar a:active,
+.kiwi-navbar .kiwi-brand,
+.kiwi-navbar .kiwi-brand-name,
+.kiwi-navbar .kiwi-nav-links a,
+.kiwi-navbar .kiwi-nav-link,
+.kiwi-navbar .kiwi-nav-actions a,
+.kiwi-navbar .pill-btn-outline,
+.kiwi-navbar .pill-btn-green,
+[data-testid="stMarkdownContainer"] .kiwi-navbar a {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
+
+.kiwi-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+
+.kiwi-logo-circle {
+  width: 32px !important;
+  height: 32px !important;
+  background: linear-gradient(135deg, #4ADE80, #22C55E) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.kiwi-brand-name {
+  font-size: 1.15rem !important;
+  font-weight: 800 !important;
+  color: var(--text-primary) !important;
+  letter-spacing: -0.02em !important;
+}
+
+.kiwi-nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.kiwi-nav-link {
+  color: var(--text-secondary) !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+  padding: 0.4rem 0.85rem !important;
+  border-radius: var(--radius-pill) !important;
+  transition: all 0.15s ease !important;
+  display: inline-block !important;
+}
+
+.kiwi-nav-link:hover {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-hover) !important;
+}
+
+.kiwi-nav-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+}
+
+.pill-btn-outline {
+  padding: 0.45rem 1.2rem !important;
+  border-radius: var(--radius-pill) !important;
+  border: 1px solid var(--border-card) !important;
+  background-color: transparent !important;
+  color: var(--text-primary) !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: all 0.15s ease !important;
+  display: inline-block !important;
+}
+
+.pill-btn-outline:hover {
+  background-color: var(--bg-hover) !important;
+  border-color: #D1D5DB !important;
+}
+
+.pill-btn-green {
+  padding: 0.45rem 1.3rem !important;
+  border-radius: var(--radius-pill) !important;
+  background-color: #4ADE80 !important;
+  color: #064E3B !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.3) !important;
+  transition: all 0.15s ease !important;
+  display: inline-block !important;
+}
+
+.pill-btn-green:hover {
+  background-color: #22C55E !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35) !important;
+}
+  transition: all 0.15s ease;
+  display: inline-block;
+}
+
+.pill-btn-green:hover {
+  background-color: var(--kiwi-green);
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-headline {
+  font-size: 3.1rem;
+  font-weight: 800;
+  line-height: 1.12;
+  color: var(--text-primary);
+  letter-spacing: -0.035em;
+  margin-bottom: 1.1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 520px;
+}
+
+.hero-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-card);
+  margin-top: 1.25rem;
+}
+
+.hero-stat-num {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.hero-stars {
+  color: #22C55E;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   Monochrome Partner Bar
+   ========================================================================== */
+.partner-bar {
+  text-align: center;
+  padding: 1.25rem 0;
+  margin: 2.5rem 0 3.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.partner-bar-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-quaternary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.partner-bar-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.partner-logo-item {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #4B5563;
+}
+
+/* ==========================================================================
+   Section Headers
+   ========================================================================== */
+.section-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.75rem;
+}
+
+.section-main-title {
+  font-size: 2.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.section-main-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+  max-width: 580px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Streamlit Native Container Override to Bento Card
+   ========================================================================== */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  background-color: var(--bg-pure) !important;
+  border: 1px solid var(--border-card) !important;
+  border-radius: var(--radius-card) !important;
+  box-shadow: var(--shadow-card) !important;
+  transition: all 0.2s ease !important;
+  margin-bottom: 1.5rem !important;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+  border-color: #D1D5DB !important;
+  box-shadow: var(--shadow-card-hover) !important;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"] > div {
+  padding: 1.65rem 1.85rem !important;
+}
+
+/* Inside card typography */
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.25rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+/* Mock Prompt Box */
+.kiwi-prompt-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #F9FAFB;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+}
+
+.sparkle-badge {
+  color: var(--kiwi-green-light);
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Prediction Showcase
+   ========================================================================== */
+.result-box-kiwi {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+  border: 2px solid var(--kiwi-green-light);
+  border-radius: var(--radius-inner);
+  padding: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.result-badge-green {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  background-color: var(--kiwi-green-bg);
+  color: var(--kiwi-green-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.result-sign-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.result-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.meta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.7rem;
+  background-color: var(--bg-pure);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.meta-pill.highlight {
+  background-color: var(--kiwi-green-bg);
+  border-color: #86EFAC;
+  color: var(--kiwi-green-text);
+  font-weight: 700;
+}
+
+/* Kiwi Horizontal Probability Bar */
+.prob-row-kiwi {
+  margin-bottom: 0.75rem;
+}
+
+.prob-header-kiwi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.prob-track-kiwi {
+  width: 100%;
+  height: 8px;
+  background-color: #E5E7EB;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.prob-fill-kiwi {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  transition: width 0.3s ease;
+}
+
+.prob-fill-kiwi.r1 {
+  background: linear-gradient(90deg, #4ADE80, #22C55E);
+}
+
+.prob-fill-kiwi.r2 {
+  background-color: #86EFAC;
+}
+
+.prob-fill-kiwi.r3 {
+  background-color: #CBD5E1;
+}
+
+/* Preprocessing Stages */
+.stage-mini-box {
+  background-color: #F9FAFB;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-inner);
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.stage-mini-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.35rem;
+}
+
+.stage-mini-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-top: 0.35rem;
+}
+
+.kiwi-pipeline-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background-color: var(--kiwi-green-subtle);
+  border: 1px dashed #86EFAC;
+  border-radius: var(--radius-inner);
+  padding: 0.75rem 1.15rem;
+  margin-top: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--kiwi-green-text);
+}
+
+/* Supported Class Thumbnails */
+.class-cell {
+  background-color: var(--bg-pure);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-inner);
+  padding: 1rem 0.65rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.class-cell:hover {
+  border-color: var(--kiwi-green-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.class-cell-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 0.4rem;
+  line-height: 1.2;
+}
+
+.class-cell-id {
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Streamlit Button Tweaks to Kiwi Pills */
+div.stButton > button {
+  border-radius: var(--radius-pill) !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  padding: 0.45rem 1.35rem !important;
+  transition: all 0.15s ease !important;
+  border: 1px solid var(--border-card) !important;
+  background-color: #FFFFFF !important;
+  color: var(--text-primary) !important;
+}
+
+div.stButton > button:hover {
+  background-color: var(--bg-hover) !important;
+  border-color: #D1D5DB !important;
+}
+
+div.stButton > button[kind="primary"] {
+  background-color: var(--kiwi-green-light) !important;
+  color: #064E3B !important;
+  border: none !important;
+  box-shadow: 0 2px 8px rgba(74, 222, 128, 0.35) !important;
+}
+
+div.stButton > button[kind="primary"]:hover {
+  background-color: var(--kiwi-green) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+/* File uploader styling */
+div[data-testid="stFileUploader"] {
+  border: 2px dashed #E5E7EB !important;
+  border-radius: var(--radius-inner) !important;
+  background-color: #FAFAFA !important;
+  padding: 1rem !important;
+}
+
+div[data-testid="stFileUploader"]:hover {
+  border-color: var(--kiwi-green-light) !important;
+}
+
+/* Footer */
+.kiwi-footer {
+  border-top: 1px solid var(--border-card);
+  padding: 3rem 0 1.5rem 0;
+  margin-top: 3.5rem;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Section G & H Improvements: Model Architecture & Performance Dashboard
+   ========================================================================== */
+
+/* Architecture Cards */
+.arch-header-badge {
+  display: inline-block;
+  padding: 0.22rem 0.75rem;
+  background-color: var(--kiwi-green-bg);
+  color: var(--kiwi-green-text);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.arch-header-badge.gray {
+  background-color: #F3F4F6;
+  color: #374151;
+}
+
+.arch-feature-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background-color: #FAFAFA;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-inner);
+  margin-bottom: 0.65rem;
+  transition: all 0.15s ease;
+}
+
+.arch-feature-item:hover {
+  background-color: #FFFFFF;
+  border-color: #D1D5DB;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.arch-feature-content {
+  flex: 1;
+}
+
+.arch-feature-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.arch-feature-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.arch-feature-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-card);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.arch-feature-badge.green {
+  background-color: var(--kiwi-green-bg);
+  color: var(--kiwi-green-text);
+  border-color: #A7F3D0;
+}
+
+/* Layer Stack */
+.layer-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.85rem 0;
+}
+
+.layer-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #FAFAFA;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-inner);
+}
+
+.layer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.layer-index-badge {
+  width: 26px;
+  height: 26px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.layer-name-title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.layer-tech-detail {
+  font-size: 0.74rem;
+  color: var(--text-tertiary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.layer-params-pill {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #065F46;
+  background-color: var(--kiwi-green-subtle);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid #BBF7D0;
+}
+
+.layer-total-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.15rem;
+  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+  border: 1px solid #86EFAC;
+  border-radius: var(--radius-inner);
+  margin-top: 0.65rem;
+}
+
+.layer-total-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #064E3B;
+}
+
+.layer-total-value {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #064E3B;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Custom Benchmark Table */
+.benchmark-table-wrapper {
+  overflow-x: auto;
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.kiwi-benchmark-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-inner);
+  overflow: hidden;
+}
+
+.kiwi-benchmark-table th {
+  background-color: #F9FAFB;
+  color: var(--text-tertiary);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid var(--border-card);
+  text-align: left;
+}
+
+.kiwi-benchmark-table td {
+  padding: 0.95rem 1.2rem;
+  border-bottom: 1px solid #F3F4F6;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.kiwi-benchmark-table tr:last-child td {
+  border-bottom: none;
+}
+
+.kiwi-benchmark-table tr.champion-row {
+  background-color: #F0FDF4;
+}
+
+.kiwi-benchmark-table tr.champion-row td {
+  color: #064E3B;
+  font-weight: 600;
+}
+
+.bar-in-table {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bar-in-table-track {
+  width: 120px;
+  height: 7px;
+  background-color: #E5E7EB;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.bar-in-table-fill {
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background-color: #9CA3AF;
+}
+
+.bar-in-table-fill.green {
+  background: linear-gradient(90deg, #4ADE80, #22C55E);
+}
+
+/* Champion Trophy Hero Box */
+.champion-hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0FDF4 100%);
+  border: 2px solid #86EFAC;
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.85rem;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.08);
+  margin-top: 1rem;
+}
+
+.champion-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.champion-trophy-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #4ADE80, #22C55E);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+  flex-shrink: 0;
+}
+
+.champion-hero-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #064E3B;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.25rem;
+}
+
+.champion-hero-desc {
+  font-size: 0.84rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.champion-hero-score {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.champion-score-number {
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: #064E3B;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.champion-score-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #059669;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+
+/* ==========================================================================
+   Kiwi Modal / Dialog Styles
+   ========================================================================== */
+/* When modal is open, fade out the fixed navbar so it doesn't peek behind the modal */
+body:has(div.stDialog) .kiwi-navbar-fixed-container,
+body:has([data-testid="stDialog"]) .kiwi-navbar-fixed-container {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-20px) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+div.stDialog,
+div[data-testid="stDialog"] {
+  z-index: 10000000 !important;
+}
+
+div[data-testid="stDialog"] > div {
+  z-index: 10000001 !important;
+}
+
+section[role="dialog"],
+div[data-testid="stModal"] {
+  max-width: 620px !important;
+  width: 92vw !important;
+  max-height: 88vh !important;
+  overflow-y: auto !important;
+  border-radius: 20px !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid rgba(229, 231, 235, 0.95) !important;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.28) !important;
+  padding: 1.15rem 1.4rem !important;
+  margin: auto !important;
+}
+
+section[role="dialog"] h2,
+section[role="dialog"] [data-testid="stMarkdownContainer"] h2,
+div[data-testid="stModal"] [data-testid="stMarkdownContainer"] h2 {
+  color: #111827 !important;
+  font-weight: 800 !important;
+  font-size: 1.15rem !important;
+  letter-spacing: -0.02em !important;
+  margin-bottom: 0.2rem !important;
+}
+
+section[role="dialog"] button[aria-label="Close"],
+div[data-testid="stModal"] button[aria-label="Close"] {
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+}
+
+section[role="dialog"] button[aria-label="Close"]:hover,
+div[data-testid="stModal"] button[aria-label="Close"]:hover {
+  background-color: #F3F4F6 !important;
+  color: #111827 !important;
+}
+
+section[role="dialog"] .stButton > button {
+  border-radius: var(--radius-pill) !important;
+}
+
+/* Modal cropper styling & compact preview */
+section[role="dialog"] iframe {
+  max-width: 100% !important;
+}
+
+/* ==========================================================================
+   Kiwi Modern Tabs Styling
+   ========================================================================== */
+div[data-testid="stTabs"] [role="tab"],
+div[data-testid="stTabs"] button[role="tab"] {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  color: #4B5563 !important;
+  border-radius: var(--radius-pill) !important;
+  padding: 0.5rem 1.15rem !important;
+  border: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
+  background-color: transparent !important;
+  margin-right: 0.5rem !important;
+}
+
+div[data-testid="stTabs"] [role="tab"]:hover,
+div[data-testid="stTabs"] button[role="tab"]:hover {
+  color: #111827 !important;
+  background-color: #F3F4F6 !important;
+}
+
+div[data-testid="stTabs"] [role="tab"][aria-selected="true"],
+div[data-testid="stTabs"] button[role="tab"][aria-selected="true"] {
+  color: #064E3B !important;
+  background-color: #DCFCE7 !important;
+  border-color: #86EFAC !important;
+  font-weight: 700 !important;
+}
+
+div[data-testid="stTabs"] div[role="tablist"] {
+  border-bottom: 1px solid #E5E7EB !important;
+  padding-bottom: 0.6rem !important;
+  margin-bottom: 1.25rem !important;
+  gap: 0.35rem !important;
+}
+
+/* ==========================================================================
+   Glass-Box Introspection Section Styling
+   ========================================================================== */
+.glassbox-mode-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.glassbox-mode-pill.live {
+  background-color: #F0FDF4;
+  border: 1px solid #86EFAC;
+  color: #065F46;
+}
+
+.glassbox-mode-pill.baseline {
+  background-color: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: #334155;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22C55E;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+.glassbox-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .glassbox-metric-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.glassbox-metric-box {
+  background-color: #FAFAFA;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-inner);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.glassbox-metric-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6B7280;
+  margin-bottom: 0.25rem;
+}
+
+.glassbox-metric-val {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.glassbox-metric-sub {
+  font-size: 0.75rem;
+  color: #059669;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.glassbox-subcard {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-inner);
+  padding: 1.15rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.glassbox-subcard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.glassbox-subcard-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.glassbox-subcard-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background-color: #DCFCE7;
+  color: #065F46;
+}
+
+.glassbox-callout {
+  background-color: #F9FAFB;
+  border-left: 3px solid #22C55E;
+  border-radius: 0 8px 8px 0;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.82rem;
+  color: #374151;
+  line-height: 1.45;
+  margin-top: 0.75rem;
+}
+
+/* Math cards in Tab 2 */
+.math-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-inner);
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.math-card-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #059669;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.math-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+
+.math-card-formula {
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #0F172A;
+  margin-bottom: 0.75rem;
+  overflow-x: auto;
+}
+
+.math-card-desc {
+  font-size: 0.82rem;
+  color: #4B5563;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.math-card-why {
+  background-color: #F0FDF4;
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.78rem;
+  color: #065F46;
+  font-weight: 500;
+  margin-top: 0.65rem;
+}
+
+/* Topology Diagram Styling */
+.topology-container {
+  background-color: #FAFAFA;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-inner);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.topology-svg {
+  width: 100%;
+  max-width: 860px;
+  height: auto;
+}

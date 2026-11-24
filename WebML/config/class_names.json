@@ -1,0 +1,95 @@
+{
+  "classes": [
+    {
+      "internal_id": 0,
+      "original_id": 0,
+      "name": "Pedestrian Crossing",
+      "raw_name": "PedestrianCrossing",
+      "category": "Warning / Information",
+      "description": "Warns drivers that pedestrians may be crossing the road ahead. Drivers must yield.",
+      "sample_image": "assets/sample_images/0.png"
+    },
+    {
+      "internal_id": 1,
+      "original_id": 1,
+      "name": "No Left Turn",
+      "raw_name": "NoLeftTurn",
+      "category": "Prohibitory",
+      "description": "Prohibits vehicles from making a left turn at the specified intersection.",
+      "sample_image": "assets/sample_images/1.png"
+    },
+    {
+      "internal_id": 2,
+      "original_id": 2,
+      "name": "No Right Turn",
+      "raw_name": "NoRightTurn",
+      "category": "Prohibitory",
+      "description": "Prohibits vehicles from making a right turn at the specified intersection.",
+      "sample_image": "assets/sample_images/2.png"
+    },
+    {
+      "internal_id": 3,
+      "original_id": 4,
+      "name": "No Entry",
+      "raw_name": "NoEntry",
+      "category": "Prohibitory",
+      "description": "Indicates no vehicular access is permitted in this direction.",
+      "sample_image": "assets/sample_images/4.png"
+    },
+    {
+      "internal_id": 4,
+      "original_id": 5,
+      "name": "Speed Limit (20 km/h)",
+      "raw_name": "SpeedLimit20km_h",
+      "category": "Regulatory / Speed Restriction",
+      "description": "Maximum permitted vehicle speed is 20 kilometers per hour.",
+      "sample_image": "assets/sample_images/5.png"
+    },
+    {
+      "internal_id": 5,
+      "original_id": 7,
+      "name": "No Parking",
+      "raw_name": "NoParking",
+      "category": "Prohibitory",
+      "description": "Parking of vehicles is prohibited in this designated zone.",
+      "sample_image": "assets/sample_images/7.png"
+    },
+    {
+      "internal_id": 6,
+      "original_id": 8,
+      "name": "No Stopping",
+      "raw_name": "NoStopping",
+      "category": "Prohibitory",
+      "description": "Stopping and waiting are strictly prohibited at all times.",
+      "sample_image": "assets/sample_images/8.png"
+    },
+    {
+      "internal_id": 7,
+      "original_id": 9,
+      "name": "No Overtaking",
+      "raw_name": "NoOvertaking",
+      "category": "Prohibitory",
+      "description": "Passing or overtaking other motor vehicles is forbidden.",
+      "sample_image": "assets/sample_images/9.png"
+    },
+    {
+      "internal_id": 8,
+      "original_id": 22,
+      "name": "Stop",
+      "raw_name": "Stop",
+      "category": "Priority / Mandatory",
+      "description": "Drivers must come to a complete stop before proceeding safely.",
+      "sample_image": "assets/sample_images/22.png"
+    },
+    {
+      "internal_id": 9,
+      "original_id": 33,
+      "name": "Children Crossing",
+      "raw_name": "ChildrenCrossing",
+      "category": "Warning",
+      "description": "Warns of potential presence of children near schools or playgrounds.",
+      "sample_image": "assets/sample_images/33.png"
+    }
+  ]
+}
+
